@@ -1,0 +1,23 @@
+specVersion: 0.0.4
+schema:
+  file: ./seaport.schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: seaport
+    network: shibuya
+    source:
+      address: "0xEeb3aaB1D39178966Dc9A9D0267Dc4F7c596775a"
+      abi: Seaport
+      startBlock: 3292282
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities: []
+      abis:
+        - name: Seaport
+          file: ./abis/Seaport.json
+      eventHandlers:
+        - event: OrderFulfilled(bytes32,indexed address,indexed address,address,(uint8,address,uint256,uint256)[],(uint8,address,uint256,uint256,address)[])
+          handler: handleOrderFulfilled
+      file: ../mappings/seaport.ts

@@ -1,0 +1,7 @@
+type OrderFulfilled @entity(immutable: true) {
+  id: Bytes!
+  blockNumber: BigInt!
+  offerer: Bytes!
+  zone: Bytes!
+  recipient: Bytes!
+}

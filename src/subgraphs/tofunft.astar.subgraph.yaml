@@ -1,0 +1,28 @@
+specVersion: 0.0.4
+schema:
+  file: ./tofunft.schema.graphql
+features:
+  - nonFatalErrors
+dataSources:
+  - kind: ethereum/contract
+    name: tofunft
+    network: astar
+    source:
+      address: "0x7Cae7FeB55349FeADB8f84468F692450D92597bc"
+      abi: Tofunft
+      # contract created
+      # startBlock: 225714
+      # start order
+      startBlock: 227906
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities: []
+      abis:
+        - name: Tofunft
+          file: ./abis/Tofunft.json
+      eventHandlers:
+        - event: EvInventoryUpdate(indexed uint256,(address,address,address,uint256,uint256,uint256,uint8,uint8))
+          handler: handleInventoryUpdate
+      file: ../mappings/tofunft/mapping.ts

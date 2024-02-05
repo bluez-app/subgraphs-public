@@ -1,0 +1,20 @@
+type Inventory @entity {
+  id: ID!
+  transactionHash: Bytes!
+  blockTimestamp: BigInt!
+  blockNumber: BigInt!
+  seller: Bytes!
+  buyer: Bytes!
+  currency: Bytes!
+  price: BigInt!
+  netPrice: BigInt!
+  deadline: BigInt!
+  kind: BigInt!
+  status: BigInt!
+
+  # token
+  token: Bytes
+  tokenId: BigInt
+  tokenAmount: BigInt
+  tokenKind: BigInt
+}

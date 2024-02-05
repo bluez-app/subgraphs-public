@@ -1,0 +1,10 @@
+{
+    "output": "generated/erc721/zkatana.erc721.",
+    "chain": "zkatana",
+    "datasources": [
+        {
+            "startBlock": 1,
+            "module": "erc721"
+        }
+    ]
+}
