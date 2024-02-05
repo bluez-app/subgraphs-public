@@ -17,6 +17,15 @@ docker-compose up -d
 ## Build
 
 ```shell
+# generate subgraph
+npx graph-compiler \
+  --config zkatana.erc721.json \
+  --include node_modules/@openzeppelin/subgraphs/src/datasources \
+  --export-schema \
+  --export-subgraph
+```
+
+```shell
 # codegen
 yarn codegen generated/erc721/zkatana.erc721.subgraph.yaml
 # build

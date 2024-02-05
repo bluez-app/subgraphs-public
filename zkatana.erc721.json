@@ -3,7 +3,7 @@
   "chain": "zkatana",
   "datasources": [
     {
-      "startBlock": 215100,
+      "startBlock": 215099,
       "module": "erc721"
     }
   ]
