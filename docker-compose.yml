@@ -30,11 +30,11 @@ services:
     image: graphprotocol/graph-node
     platform: linux/amd64
     ports:
-      - '8400:8000'
-      - '8401:8001'
-      - '8420:8020'
-      - '8430:8030'
-      - '8440:8040'
+      - '8000:8000'
+      - '8001:8001'
+      - '8020:8020'
+      - '8030:8030'
+      - '8040:8040'
     extra_hosts:
       - host.docker.internal:host-gateway
     environment:
