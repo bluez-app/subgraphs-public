@@ -14,7 +14,9 @@ yarn
 docker-compose up -d
 ```
 
-## Build
+## Deploying To Zkatana
+
+### Build
 
 ```shell
 # generate subgraph
@@ -32,7 +34,7 @@ yarn codegen generated/erc721/zkatana.erc721.subgraph.yaml
 yarn build generated/erc721/zkatana.erc721.subgraph.yaml
 ```
 
-## Deploying Subgraph To Local Graph Node
+### Deploying Subgraph To Local Graph Node
 
 ```shell
 # create subgraph
@@ -40,4 +42,34 @@ yarn gcreate --node http://127.0.0.1:8020/ bluez/zkatana-erc721-v2
 
 # deploy subgraph
 yarn gdeploy --node http://127.0.0.1:8020/ --ipfs http://127.0.0.1:5001 bluez/zkatana-erc721-v2 generated/erc721/zkatana.erc721.subgraph.yaml
+```
+
+## Deploying To Shibuya
+
+### Build
+
+```shell
+# generate subgraph
+npx graph-compiler \
+  --config shibuya.erc721.json \
+  --include node_modules/@openzeppelin/subgraphs/src/datasources \
+  --export-schema \
+  --export-subgraph
+```
+
+```shell
+# codegen
+yarn codegen generated/erc721/shibuya.erc721.subgraph.yaml
+# build
+yarn build generated/erc721/shibuya.erc721.subgraph.yaml
+```
+
+### Deploying Subgraph To Local Graph Node
+
+```shell
+# create subgraph
+yarn gcreate --node http://127.0.0.1:8120/ bluez/shibuya-erc721-v2
+
+# deploy subgraph
+yarn gdeploy --node http://127.0.0.1:8120/ --ipfs http://127.0.0.1:5001 bluez/shibuya-erc721-v2 generated/erc721/shibuya.erc721.subgraph.yaml
 ```

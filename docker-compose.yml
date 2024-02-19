@@ -43,7 +43,35 @@ services:
       postgres_pass: let-me-in
       postgres_db: graph-node
       ipfs: 'ipfs:5001'
-      ethereum: 'zkatana:https://rpc.zkatana.gelato.digital	'
+      ethereum: 'zkatana:https://rpc.zkatana.gelato.digital'
+      GRAPH_LOG: info
+      GRAPH_GETH_ETH_CALL_ERRORS: 'execution fatal'
+      GRAPH_GETH_ETH_CALL_ERRORS: 'Response is too big'
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 1024M
+  node-shibuya-testnet:
+    container_name: node-shibuya
+    image: graphprotocol/graph-node
+    platform: linux/amd64
+    ports:
+      - '8100:8000'
+      - '8101:8001'
+      - '8120:8020'
+      - '8130:8030'
+      - '8140:8040'
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    environment:
+      postgres_host: postgres
+      postgres_user: graph-node
+      postgres_pass: let-me-in
+      postgres_db: graph-node
+      ipfs: 'ipfs:5001'
+      ethereum: 'shibuya:https://evm.shibuya.astar.network/'
       GRAPH_LOG: info
       GRAPH_GETH_ETH_CALL_ERRORS: 'execution fatal'
       GRAPH_GETH_ETH_CALL_ERRORS: 'Response is too big'

@@ -1,0 +1,10 @@
+{
+  "output": "generated/erc721/shibuya.erc721.",
+  "chain": "shibuya",
+  "datasources": [
+    {
+      "startBlock": 3000000,
+      "module": "erc721"
+    }
+  ]
+}
